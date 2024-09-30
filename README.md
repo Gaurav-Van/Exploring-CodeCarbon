@@ -6,7 +6,7 @@ Diving into the world of Tracking CO2 Emissions from our software or code.  Code
 - https://www.co2signal.com/
 - Energy and Policy Considerations for Deep Learning in NLP: https://arxiv.org/pdf/1906.02243
 - Energy Usage Reports: Environmental awareness as part of algorithmic accountability: https://arxiv.org/pdf/1911.08354
-- https://medium.com/@ilievski.vladimir/track-the-co2-emissions-of-your-python-code-the-same-way-you-time-it-afd5688a8645
+- https://medium.com/@ilievski.vladimir/track-the-co2-emissions-of-your-python-code-the-same-way-you-time-it-afd5688a8645 [Code from this article is used for practicing]
 
 ## Code Carbon 
 Code Carbon is a lightweight open-source Python Library that lets you track the Co2 emissions produced by running code.
@@ -82,8 +82,9 @@ prometheus_client
 <hr>
 
 ## Exploring CodeCarbon Using Keras IMDb Dataset
+```python
+from codecarbon import EmissionsTracker
+```
 The IMDb sentiment analysis dataset in Keras is a widely-used dataset for training models to classify movie reviews as positive or negative. It contains 50,000 reviews, split evenly into training and testing sets. Each review is preprocessed into a sequence of integers, where each integer represents a specific word in the dictionary. This preprocessing step helps in standardizing the input for neural network models, making it easier to handle text data.
 
 When you print the train and test data, you see arrays of numbers because the text reviews have been converted into sequences of integers. Each integer corresponds to a word’s index in a dictionary of the most frequent words in the dataset. 
-
-
