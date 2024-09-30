@@ -124,4 +124,6 @@ tracker.stop()
 ```
 ![image](https://github.com/user-attachments/assets/659dc8ca-e9a1-49ca-a5af-980665f6a03b)
 
+The summary of every run is saved as one row in a file named emissions.csv by default. The library also comes with command line tool named `carbonboard` that produces a dashboard showing equivalents of the carbon emission produced by the experiment.
+
 
