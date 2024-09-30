@@ -124,6 +124,18 @@ tracker.stop()
 ```
 ![image](https://github.com/user-attachments/assets/659dc8ca-e9a1-49ca-a5af-980665f6a03b)
 
+#### Visualize
+
 The summary of every run is saved as one row in a file named emissions.csv by default. The library also comes with command line tool named `carbonboard` that produces a dashboard showing equivalents of the carbon emission produced by the experiment.
+The package also comes with a `Dash App` containing illustrations to understand the emissions logged from various experiments across projects. The App currently consumes logged information from a CSV file, generated from an in-built logger in the package.
+The App can be run by executing the below CLI command that needs following arguments:
+
+`filepath - path to the CSV file containing logged information across experiments and projects`
+
+`port - an optional port number, in case default [8050] is used by an existing process`
+
+```bash
+carbonboard --filepath="examples/emissions.csv" --port=3333
+```
 
 
