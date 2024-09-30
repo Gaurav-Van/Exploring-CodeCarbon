@@ -4,6 +4,7 @@ Diving into the world of Tracking CO2 Emissions from our software or code.  Code
 <b>References</b>
 - https://codecarbon.io/
 - https://www.co2signal.com/
+- https://mlco2.github.io/codecarbon/usage.html
 - Energy and Policy Considerations for Deep Learning in NLP: https://arxiv.org/pdf/1906.02243
 - Energy Usage Reports: Environmental awareness as part of algorithmic accountability: https://arxiv.org/pdf/1911.08354
 - https://medium.com/@ilievski.vladimir/track-the-co2-emissions-of-your-python-code-the-same-way-you-time-it-afd5688a8645 [Code from this article is used for practicing]
@@ -88,3 +89,39 @@ from codecarbon import EmissionsTracker
 The IMDb sentiment analysis dataset in Keras is a widely-used dataset for training models to classify movie reviews as positive or negative. It contains 50,000 reviews, split evenly into training and testing sets. Each review is preprocessed into a sequence of integers, where each integer represents a specific word in the dictionary. This preprocessing step helps in standardizing the input for neural network models, making it easier to handle text data.
 
 When you print the train and test data, you see arrays of numbers because the text reviews have been converted into sequences of integers. Each integer corresponds to a word’s index in a dictionary of the most frequent words in the dataset. 
+
+#### Code Skeleton
+```python
+from codecarbon import EmissionsTracker
+tracker = EmissionsTracker()
+tracker.start()
+try:
+     # Compute intensive code goes here
+     _ = 1 + 1
+finally:
+     tracker.stop()
+```
+
+#### Analysis of Loading Dataset 
+```python
+tracker = EmissionsTracker(project_name="codeCarbon_IMDbSentimentData_LoadingData_Analysis")
+tracker.start_task("load Dataset")
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
+print(f"Length of Training Data: {len(x_train)}\n\n{x_train}")
+print("\n==============\n")
+print(f"Length of Test Data: {len(x_test)}\n\n{x_test}")
+tracker.stop_task()
+tracker.stop()
+```
+![image](https://github.com/user-attachments/assets/009dc2a9-725c-4488-b37c-a167f2049950)
+
+#### Analysis of Model Training
+```python
+tracker = EmissionsTracker(project_name="codeCarbon_IMDbSentimentData_carbonAnalysis")
+tracker.start()
+train_model()
+tracker.stop()
+```
+![image](https://github.com/user-attachments/assets/659dc8ca-e9a1-49ca-a5af-980665f6a03b)
+
+
